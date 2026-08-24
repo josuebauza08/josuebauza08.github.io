@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Ingeniero de Sistemas & Automatización</title>
+    <!-- Google Fonts & Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #06b6d4;
+            --accent-hover: #0891b2;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent);
+            font-family: 'Fira Code', monospace;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: 0.3s;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            padding: 6rem 10% 4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .badge {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--accent);
+            margin-bottom: 1rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card-bg);
+        }
+
+        /* Grid Sections */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            margin-top: 0.5rem;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 10%;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <div class="logo">&lt;Ing Miguel bauza /&gt;</div>
+        <nav>
+            <a href="#especialidades">Especialidades</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#tech">Tecnologías</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <span class="badge">Especialista en Automatización & Integración</span>
+        <h1>Ingeniero de Sistemas</h1>
+        <p>Optimizo flujos de trabajo, integro sistemas complejos y desarrollo arquitecturas de software eficientes. Enfocado en la productividad, la escalabilidad y las mejores prácticas como GitFlow.</p>
+        <div class="btn-group">
+            <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+            <a href="#contacto" class="btn btn-secondary">Contactar</a>
+        </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section id="especialidades">
+        <h2 class="section-title">Lo que hago</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-gears"></i>
+                <h3>Automatización de Procesos</h3>
+                <p>Diseño e implementación de flujos de trabajo automatizados para eliminar tareas repetitivas, reduciendo tiempos de ejecución y reduciendo errores operativos.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-network-wired"></i>
+                <h3>Integración de Sistemas & APIs</h3>
+                <p>Conexión e interconexión de plataformas heterogéneas mediante APIs RESTful, garantizando la consistencia y el intercambio de datos en tiempo real.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Optimización & Rendimiento</h3>
+                <p>Análisis, depuración y mejora continua de bases de datos, código fuente y plataformas web para garantizar la máxima velocidad e integridad de transacciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos Destacados -->
+    <section id="proyectos">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-brain"></i>
+                <h3>Sistema de Mantenimiento Predictivo</h3>
+                <p>Simulación de modelo predictivo basado en Machine Learning para la detección temprana de fallas en entornos industriales/marítimos.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Sistema de Alertas e Integración en Tiempo Real</h3>
+                <p>Plataforma de procesamiento automatizado para consumir APIs externas, evaluar métricas de rendimiento e identificar anomalías instantáneamente.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h3>Plataforma Web de Gestión Automatizada</h3>
+                <p>Aplicación web interactiva para agendamiento y reserva de servicios con workflows automatizados de confirmación y atención al cliente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section id="tech">
+        <h2 class="section-title">Stack Tecnológico</h2>
+        <div class="skills-container">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">JavaScript / TypeScript</span>
+            <span class="skill-tag">SQL / MySQL</span>
+            <span class="skill-tag">APIs RESTful</span>
+            <span class="skill-tag">Git & GitFlow</span>
+            <span class="skill-tag">Scikit-Learn</span>
+            <span class="skill-tag">GitHub Actions / CI-CD</span>
+            <span class="skill-tag">Linux / Server Admin</span>
+        </div>
+    </section>
+
+    <!-- Contacto / Footer -->
+    <footer id="contacto">
+        <h2>¿Tienes un proyecto en mente?</h2>
+        <p style="margin-top: 0.5rem; color: var(--text-muted);">Estoy abierto a colaborar en proyectos de automatización, optimización y desarrollo de sistemas.</p>
+        
+        <div class="social-links">
+            <a href="https://github.com/josuebauza08" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="http://www.linkedin.com/in/josuebauza0808" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="josue755xeah@gmail.com" title="Correo Electrónico"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.8rem;">&copy; 2026 Diseñado y desplegado mediante GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
